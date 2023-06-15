@@ -1,8 +1,42 @@
+<template>
+  <login-layout
+  title="تسجيــل حســاب جديـد"
+  description="أهلا بك في موقعنا">
+  <form @submit.prevent="submitForm">
+    <label for="full_name">الاســم</label>
+    <input type="text" v-model="full_name" class="form-control" id="full_name" placeholder="اسم المستخدم" />
+    <label for="email">البريد الالكتروني</label>
+    <input type="email" v-model="email" class="form-control" id="email" placeholder="البريد الإلكتروني" />
+    <label for="phone">رقم الهاتف</label>
+     <input type="text" v-model="phone" class="form-control" id="phone" placeholder="رقم الهاتف" />
+        <label for="phone_code">كود</label>
+     <input type="text" v-model="phone_code" class="form-control" id="phone_code" placeholder="كود رقم الهاتف" />
+    <div class="password-input">
+      <label for="password">كلمة المرور</label>
+      <input :type="passwordFieldType" v-model="password" class="form-control" id="password" placeholder="كلمة المرور" />
+      <font-awesome-icon class="password-toggle" icon="eye" @click="togglePasswordVisibility" />
+    </div>
+    <div class="password-input">
+      <label for="password_confirmation">كلمة المرور</label>
+      <input :type="passwordFieldType" v-model="password_confirmation" class="form-control" id="password_confirmation" placeholder="تأكيد كلمة المرور" />
+      <font-awesome-icon class="password-toggle" icon="eye" @click="togglePasswordVisibility" />
+    </div>
+    <input type="submit" class="form-control btn allButtons" value="إنشــاء حســاب جديد" />
+    <p class="text-center">تمتلك حســاب بالفعل؟ 
+      <router-link to="/login" class="routeSpan">تسجيـل الدخول</router-link>
+    </p>
+    </form>
+  </login-layout>
+</template>
+
 <script>
+import LoginLayout from '@/views/LoginLayout/LoginLayout.vue'
 import LoginUser from '@/components/LoginUser/LoginUser.vue'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faEye } from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios';
+import { useRouter } from 'vue-router';
+import NavBarAuth from '@/components/NavBarAuth/NavBarAuth.vue'
 
 export default {
   name: "LoginView",
@@ -34,8 +68,7 @@ export default {
       axios.post('http://lawyer.phpv8.aait-d.com/api/client_web/register', payload)
         .then(response => {
           this.responseData = response.data;
-          console.log(this.responseData);
-          // Handle the response as needed
+          this.$router.push('/verfication');
         })
         .catch(error => {
           console.error(error);
@@ -44,81 +77,15 @@ export default {
     }
   },
   components: {
+    LoginLayout,
     LoginUser,
-    FontAwesomeIcon
+    FontAwesomeIcon,
+    NavBarAuth
   },
 }
 </script>
 
-
-<template>
-  <main>
-    <div class="row">
-        <div class="col-6">
-            <nav>
-              <div class="row">
-                <div class="col-6">
-                    <img src="./../../assets/images/icons/logo.png" alt="client" />
-                </div>
-                <div class="col-6 align-left">
-                  <div class="row">
-                    <div class="col-1">
-                      <img src="./../../assets/images/icons/langIcon.png" alt="client" />
-                    </div>
-                    <div class="col-1">
-                      <p>Ar</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </nav>
-            <div class="container-fluid loginContent">
-          <h4>تسجيــل حســاب جديـد</h4>
-          <p>أهلا بك في موقعنا</p>
-          <div class="container mt-5">
-            <form @submit.prevent="submitForm">
-              <label for="full_name">الاســم</label>
-              <input type="text" v-model="full_name" class="form-control" id="full_name" placeholder="اسم المستخدم" />
-              <label for="email">البريد الالكتروني</label>
-              <input type="email" v-model="email" class="form-control" id="email" placeholder="البريد الإلكتروني" />
-              <label for="phone">رقم الهاتف</label>
-               <input type="text" v-model="phone" class="form-control" id="phone" placeholder="رقم الهاتف" />
-                  <label for="phone_code">كود</label>
-               <input type="text" v-model="phone_code" class="form-control" id="phone_code" placeholder="كود رقم الهاتف" />
-              <div class="password-input">
-                <label for="password">كلمة المرور</label>
-                <input :type="passwordFieldType" v-model="password" class="form-control" id="password" placeholder="كلمة المرور" />
-                <font-awesome-icon class="password-toggle" icon="eye" @click="togglePasswordVisibility" />
-              </div>
-              <div class="password-input">
-                <label for="password_confirmation">كلمة المرور</label>
-                <input :type="passwordFieldType" v-model="password_confirmation" class="form-control" id="password_confirmation" placeholder="تأكيد كلمة المرور" />
-                <font-awesome-icon class="password-toggle" icon="eye" @click="togglePasswordVisibility" />
-              </div>
-              <input type="submit" class="form-control btn btn-warning" value="إنشــاء حســاب جديد" />
-              <p class="text-center">تمتلك حســاب بالفعل؟ <span class="">
-                <router-link to="/login">تسجيـل الدخول</router-link>
-              </span></p>
-            </form>
-          </div>
-            </div>
-        </div>
-        <div class="col-6 loginAvatar">
-            <!-- <p>right</p> -->
-        </div>
-    </div>
-  </main>
-</template>
-
 <style>
-.loginAvatar{
-    background-image: url("./../../assets/images/loginAvatar.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-.createAcountSpan{
-    color: orange;
-}
 .list-item{
     list-style: none;
     display: inline-block;
