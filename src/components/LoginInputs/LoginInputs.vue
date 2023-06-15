@@ -6,8 +6,8 @@
         <input type="text" class="form-control" v-model="phoneCode" name="phone_code" id="phone_code" placeholder="كود رقـم الهـاتف" />
         <label for="password">كلمــة المرور</label>
         <input type="password" class="form-control" v-model="password" name="password" id="password" placeholder="كلمــة المرور" />
-        <p>نسيــت كلمـة المــرور؟</p>
         <input type="submit" class="btn allButtons form-control" value="دخــول" />
+        <router-link to="/forget-password" class="routeSpan">نسيــت كلمـة المــرور؟</router-link>
     </form>
 </template>
 

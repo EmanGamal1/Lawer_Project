@@ -44,10 +44,6 @@ export default {
     background-size: cover;
     background-repeat: no-repeat;
 }
-.list-item{
-    list-style: none;
-    display: inline-block;
-}
 .loginContent{
     padding: 16%;
 }

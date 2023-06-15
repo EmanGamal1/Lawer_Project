@@ -29,6 +29,16 @@ const router = createRouter({
       name: 'verfication',
       component: () => import('../views/VerfiyPhone/VerfiyPhone.vue')
     },
+    {
+      path: '/forget-password',
+      name: 'forget-password',
+      component: () => import('../views/ForgetPassword/ForgetPassword.vue')
+    },
+    {
+      path: '/reset-password',
+      name: 'reset-password',
+      component: () => import('../views/ResetPassword/ResetPassword.vue')
+    },
   ]
 })
 

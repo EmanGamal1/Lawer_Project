@@ -1,8 +1,8 @@
 <template>
     <login-layout
       title="كـود التفعيــل"
-      description="أدخل كود التفعيل الذي وصلك على هاتفـك"
-    >
+      description="أدخل كود التفعيل الذي وصلك على هاتفـك">
+    <div class="verfiyContent">
       <div class="form-group verification-code">
         <div class="verification-code-inputs">
           <input type="text" class="form-control" id="verification-code-1" maxlength="1">
@@ -11,11 +11,12 @@
           <input type="text" class="form-control" id="verification-code-4" maxlength="1">
         </div>
       </div>
-      <button class="btn allButtons">إرســال</button>
+      <button class="btn allButtons sendBtn">إرســال</button>
       <div>
         <p>إذا لم يصلك كود، <span class="routeSpan">أعد الإرســال</span></p>
         <p class="counter">{{ counter }}</p>
       </div>
+    </div>
     </login-layout>
   </template>
   
@@ -57,17 +58,28 @@
   
   <style scoped>
   .verification-code-inputs {
+    margin: auto;
     display: flex;
     width: 50%;
     height: 50px;
+    margin-top: 10%;
     margin-bottom: 3%;
   }
-  .verification-code-inputs input {
-    flex: 1;
+   .verification-code-inputs input {
     margin-right: 10px;
     text-align: center;
-  }
+   }
+/*   
   .verification-code-inputs input:last-child {
     margin-right: 0;
+  }  */
+  .verfiyContent{
+    text-align: center;
+    height: 45vh;
+  }
+  .sendBtn{
+    margin-top: 3%;
+    margin-bottom: 2%;
+    width: 50%;
   }
   </style>
