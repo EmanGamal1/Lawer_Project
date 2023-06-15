@@ -19,3 +19,10 @@
     cursor: pointer;
  }
  
+ .underlineSpan{
+   text-decoration: underline;
+ }
+
+ .coloredSpan{
+   color: #C8A45D;
+}
