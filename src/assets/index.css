@@ -26,3 +26,8 @@
  .coloredSpan{
    color: #C8A45D;
 }
+
+.contentItem{
+   align-items: center;
+   justify-content: center;
+}
