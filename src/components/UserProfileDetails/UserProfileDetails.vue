@@ -50,7 +50,7 @@ export default {
       full_name: '',
       email: '',
       phone: '',
-      country: '',
+      country: {},
       image: ''
     };
   },
@@ -73,6 +73,7 @@ export default {
         this.phone = data.phone;
         this.country = data.country.name;
         this.image = data.image;
+        console.log(data);
       } catch (error) {
         console.error(error);
       }
