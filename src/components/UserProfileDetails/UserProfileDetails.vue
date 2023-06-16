@@ -41,7 +41,7 @@
 </template>
 
 <script>
-import axios from 'axios';
+import {axiosInstance} from '@/Axios';
 
 export default {
   name: 'MyComponent',
@@ -57,11 +57,7 @@ export default {
   methods: {
     async logout() {
       try {
-        await axios.post('http://lawyer.phpv8.aait-d.com/api/client_web/logout', {}, {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem('token')}`
-          }
-        });
+        await axiosInstance.post('/api/client_web/logout');
         localStorage.removeItem('token');
         this.$router.push('/login');
       } catch (error) {
@@ -70,11 +66,7 @@ export default {
     },
     async fetchData() {
       try {
-        const response = await axios.get('http://lawyer.phpv8.aait-d.com/api/client_web/profile', {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem('token')}`
-          }
-        });
+        const response = await axiosInstance.get('/api/client_web/profile');
         const data = response.data.data;
         this.full_name = data.full_name;
         this.email = data.email;

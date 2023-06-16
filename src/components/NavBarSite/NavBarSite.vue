@@ -16,7 +16,8 @@
 </template>
 
 <script>
-import axios from 'axios'
+import {axiosInstance} from '@/Axios.js';
+
 export default {
   name: 'MyComponent',
   computed: {
@@ -27,11 +28,7 @@ export default {
   methods:{
     async logout() {
       try {
-        await axios.post('http://lawyer.phpv8.aait-d.com/api/client_web/logout', {}, {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem('token')}`
-          }
-        });
+        await axiosInstance.post('/api/client_web/logout');
         localStorage.removeItem('token');
         this.$router.push('/login');
       } catch (error) {
