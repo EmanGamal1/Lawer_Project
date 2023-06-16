@@ -9,37 +9,88 @@
                         <li class="selected">المعلومــات الشخصيـــة</li>
                         <li class="changePassSpan">تغييـــر كلمة المرور</li>
                         <li class="text-danger">حذف الحســـاب</li>
-                        <li class="text-danger">خــروج</li>
+                        <li class="text-danger" @click="logout">خــروج</li>
                     </ul>
                 </div>
                 <div class="personalInfo col-lg-8">
                 <h3>المعلومــات الشخصيـــة</h3>
                 <div class="row">
-                    <img src="src/assets/images/lady-justice-with-books-table.jpg" alt="profilePicture" class="profilePicture" />
+                    <img :src="image" alt="profilePicture" class="profilePicture" />
                 </div>
                 <div class="row content">
                     <div class="col-lg-6">
                         <h6 class="infoTitle">الاســــم</h6>
-                        <p>ااا</p>
+                        <p>{{ full_name }}</p>
                     </div>
                     <div class="col-lg-6">
                         <h6 class="infoTitle">البريـد الالكترونـــي</h6>
-                        <p>ااا</p>
+                        <p>{{ email }}</p>
                     </div>
                     <div class="col-lg-6">
                         <h6 class="infoTitle">رقـم الهـاتف</h6>
-                        <p>ااا</p>
+                        <p>{{ phone }}</p>
                     </div>
                     <div class="col-lg-6">
                         <h6 class="infoTitle">الدولــة</h6>
-                        <p>ااا</p>
+                        <p>{{ counrty }}</p>
                     </div>
                 </div>
                 </div>
             </div>
         </div>
-
 </template>
+
+<script>
+import axios from 'axios';
+
+export default {
+  name: 'MyComponent',
+  data() {
+    return {
+      full_name: '',
+      email: '',
+      phone: '',
+      country: '',
+      image: ''
+    };
+  },
+  methods: {
+    async logout() {
+      try {
+        await axios.post('http://lawyer.phpv8.aait-d.com/api/client_web/logout', {}, {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('token')}`
+          }
+        });
+        localStorage.removeItem('token');
+        this.$router.push('/login');
+      } catch (error) {
+        console.error(error);
+      }
+    },
+    async fetchData() {
+      try {
+        const response = await axios.get('http://lawyer.phpv8.aait-d.com/api/client_web/profile', {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('token')}`
+          }
+        });
+        const data = response.data.data;
+        this.full_name = data.full_name;
+        this.email = data.email;
+        this.phone = data.phone;
+        this.country = data.country.name;
+        this.image = data.image;
+      } catch (error) {
+        console.error(error);
+      }
+    }
+  },
+  mounted() {
+    this.fetchData();
+  }
+};
+</script>
 
 <style scoped>
 .profileDetails{
@@ -66,7 +117,7 @@
 }
 .profilePicture{
     border-radius: 50%;
-    width: 200px;
+    width: 150px;
     height: auto;
     margin: auto;
 }

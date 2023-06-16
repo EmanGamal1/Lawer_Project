@@ -36,18 +36,15 @@ export default {
                     phone_code: this.phoneCode,
                     password: this.password
                 });
-
-                // Handle the response as needed
                 if (response.status === 200) {
-                    // Set the token in local storage
-                    const token = response.data.token;
-                    console.log(response.data.token);
+                    const token = response.data.data.token;
                     localStorage.setItem('token', token);
+                    this.$router.push('/');
                 } else {
-                    // Login failed, handle error
+                    console.log("Failed to login");
                 }
             } catch (error) {
-                // Handle any network or other errors
+                    console.log("error");
             }
         }
     }

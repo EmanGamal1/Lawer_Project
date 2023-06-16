@@ -4,14 +4,43 @@
         <router-link to="/"><img src="./../../assets/images/icons/logoSite.png" alt="client" /></router-link>
         <div class="d-flex">
             <ul class="navbarLi">
-                <router-link to="/login" class="routeSpan"><li>دخــول</li></router-link>
-                <router-link to="/signup" class="routeSpan"><li>تسجيـل حساب</li></router-link>
+                <router-link to="/login" class="routeSpan" v-if="!isLoggedIn"><li>دخــول</li></router-link>
+                <router-link to="/signup" class="routeSpan" v-if="!isLoggedIn"><li>تسجيـل حساب</li></router-link>
+                <router-link to="/user-profile" class="routeSpan" v-if="isLoggedIn"><li>الصفحـة الشخصيـــة</li></router-link>
+                <router-link to="/user-profile" class="routeSpan" v-if="isLoggedIn" @click="logout"><li>خــروج</li></router-link>
             </ul>
         </div>
         </nav>
         <hr />
     </div>
 </template>
+
+<script>
+import axios from 'axios'
+export default {
+  name: 'MyComponent',
+  computed: {
+    isLoggedIn() {
+      return !!localStorage.getItem('token');
+    }
+  },
+  methods:{
+    async logout() {
+      try {
+        await axios.post('http://lawyer.phpv8.aait-d.com/api/client_web/logout', {}, {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('token')}`
+          }
+        });
+        localStorage.removeItem('token');
+        this.$router.push('/login');
+      } catch (error) {
+        console.error(error);
+      }
+    }
+  }
+};
+</script>
 
 <style>
 .navbar{
