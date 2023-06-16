@@ -1,6 +1,7 @@
 <template>
-    <footer class="container">
-        <div class="row">
+    <footer class="footer container-fluid">
+        <div class="container">
+        <div class="row ">
             <div class="col-lg-2">
                 <img src="src/assets/images/icons/logoSite.png" alt="logoFooter" />
             </div>
@@ -68,13 +69,16 @@
                 2023 &copy;محــاماة، تم تصميمه من قبل العالميـــة
             </p>
         </div>
+    </div>
     </footer>
 </template>
 
 <style scoped>
-.container{
+.footer{
     color: white !important;
     font-size: 14px;
+    padding-top: 5%;
+    background-color: #181E3C;
 }
 li{
     list-style: none;

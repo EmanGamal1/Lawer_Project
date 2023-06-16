@@ -1,8 +1,9 @@
 <template>
-    <div class="row">
-          <div class="col-6">
+    <div class="container-fluid ">
+      <div class="row">
+          <div class="container-fluid col-6">
               <NavBarAuth />
-              <div class="container-fluid loginContent">
+              <div class="loginContent">
             <h2>{{ title }}</h2>
             <p>{{ description }}</p>
             <div class="container">
@@ -11,7 +12,7 @@
               </div>
           </div>
           <div class="col-6 loginAvatar"></div>
-      </div>
+      </div></div>
     </template>
 
   <script>
@@ -43,6 +44,7 @@ export default {
     background-image: url("./../../assets/images/loginAvatar.png");
     background-size: cover;
     background-repeat: no-repeat;
+    min-height: 100vh;
 }
 .loginContent{
     padding: 16%;

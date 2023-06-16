@@ -3,7 +3,7 @@
 
 <template>
   <main>
-    <div class="bg">
+    <div class="backgroundIMG">
       <NavBarSite />
       <HeaderComponent />
     </div>
@@ -35,7 +35,7 @@ export default {
 </script>
 
 <style>
-.bg{
+.backgroundIMG{
   background-image: url("@/assets/images/backgroundimage.png");
   background-repeat: no-repeat;
   background-size: cover;

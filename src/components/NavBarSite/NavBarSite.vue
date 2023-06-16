@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <nav class="navbar d-flex">
-        <img src="./../../assets/images/icons/logoSite.png" alt="client" />
+        <router-link to="/"><img src="./../../assets/images/icons/logoSite.png" alt="client" /></router-link>
         <div class="d-flex">
             <ul class="navbarLi">
                 <router-link to="/login" class="routeSpan"><li>دخــول</li></router-link>

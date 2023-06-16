@@ -41,6 +41,7 @@ export default {
                 if (response.status === 200) {
                     // Set the token in local storage
                     const token = response.data.token;
+                    console.log(response.data.token);
                     localStorage.setItem('token', token);
                 } else {
                     // Login failed, handle error
