@@ -18,8 +18,8 @@
     </div>
     <div class="password-input">
       <label for="password_confirmation">كلمة المرور</label>
-      <input :type="passwordFieldType" v-model="password_confirmation" class="form-control" id="password_confirmation" placeholder="تأكيد كلمة المرور" />
-      <font-awesome-icon class="password-toggle" icon="eye" @click="togglePasswordVisibility" />
+      <input :type="passwordConfirmFieldType" v-model="password_confirmation" class="form-control" id="password_confirmation" placeholder="تأكيد كلمة المرور" />
+      <font-awesome-icon class="password-toggle" icon="eye" @click="toggleConfirmPasswordVisibility" />
     </div>
     <input type="submit" class="form-control btn allButtons" value="إنشــاء حســاب جديد" />
     <p class="text-center">تمتلك حســاب بالفعل؟ 
@@ -43,6 +43,7 @@ export default {
   data() {
     return {
       passwordFieldType: "password",
+      passwordConfirmFieldType: "password",
       full_name: '',
       email: '',
       phone: '',
@@ -55,6 +56,9 @@ export default {
   methods: {
     togglePasswordVisibility() {
       this.passwordFieldType = this.passwordFieldType === "password" ? "text" : "password";
+    },
+    toggleConfirmPasswordVisibility() {
+      this.passwordConfirmFieldType = this.passwordConfirmFieldType === "password_confirmation" ? "text" : "password_confirmation";
     },
     submitForm() {
       const payload = {

@@ -15,6 +15,7 @@ export const countryCodeValidation = (value) => {
     return true;
   };
   
+  
   export const passwordValidation = (value) => {
     if (!value) {
       return 'كلمة المرور مطلوبة';
