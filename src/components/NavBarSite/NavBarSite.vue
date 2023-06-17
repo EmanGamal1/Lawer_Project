@@ -7,7 +7,7 @@
                 <router-link to="/login" class="routeSpan" v-if="!isLoggedIn"><li>دخــول</li></router-link>
                 <router-link to="/signup" class="routeSpan" v-if="!isLoggedIn"><li>تسجيـل حساب</li></router-link>
                 <router-link to="/user-profile" class="routeSpan" v-if="isLoggedIn"><li>الصفحـة الشخصيـــة</li></router-link>
-                <router-link to="/user-profile" class="routeSpan" v-if="isLoggedIn" @click="logout"><li>خــروج</li></router-link>
+                <div class="routeSpan" v-if="isLoggedIn" @click="logout"><li>خــروج</li></div>
             </ul>
         </div>
         </nav>
@@ -17,6 +17,7 @@
 
 <script>
 import {axiosInstance} from '@/Axios.js';
+import jwtDecode from 'jwt-decode';
 
 export default {
   name: 'MyComponent',
@@ -28,7 +29,16 @@ export default {
   methods:{
     async logout() {
       try {
-        await axiosInstance.post('/api/client_web/logout');
+        const token= localStorage.getItem('token');
+        const decodedTokenIss = jwtDecode(token).iss;
+        
+        let logoutUrl = '';
+        if (decodedTokenIss.includes('/api/client_web/login')) {
+          logoutUrl = '/api/client_web/logout';
+        } else if (decodedTokenIss.includes('/api/lawyer_web/login')) {
+          logoutUrl = '/lawyer/logout';
+        }
+        await axiosInstance.post(logoutUrl);
         localStorage.removeItem('token');
         this.$router.push('/login');
       } catch (error) {

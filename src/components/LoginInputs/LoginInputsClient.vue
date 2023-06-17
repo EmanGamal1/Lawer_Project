@@ -1,5 +1,5 @@
 <template>
-    <LoginForm axiosUrl="/api/lawyer_web/login" />
+    <LoginForm axiosUrl="/api/client_web/login" forget-password-link="/forget-password" />
 </template>
 
 <script>

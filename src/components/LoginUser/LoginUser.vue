@@ -12,7 +12,7 @@
       </div>
     </div>
     <div class="row mb-3">
-      <button class="btn allButtons" :disabled="disableButton" @click="handleButtonClick">
+      <button class="btn allButtons mb-3" :disabled="disableButton" @click="handleButtonClick">
         التــالي
       </button>
       <p class="text-center">ليس لديك حســاب؟ 
@@ -32,8 +32,8 @@
 
 <script>
 import { computed, ref } from 'vue';
-import LoginInputsClient from '@/components/LoginInputsClient/LoginInputsClient.vue';
-import LoginInputsLawyer from '@/components/LoginInputsLawyer/LoginInputsLawyer.vue';
+import LoginInputsClient from '@/components/LoginInputs/LoginInputsClient.vue';
+import LoginInputsLawyer from '@/components/LoginInputs/LoginInputsLawyer.vue';
 
 export default {
   components: {
@@ -84,6 +84,9 @@ export default {
 }
 .loggedPerson.selected {
   border-color: #C8A45D;
+}
+.loggedPerson:hover {
+  cursor: pointer;
 }
 .loggedPersonContainer {
   justify-content: space-around;

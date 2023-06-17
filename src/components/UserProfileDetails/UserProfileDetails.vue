@@ -28,11 +28,11 @@
                     </div>
                     <div class="col-lg-6">
                         <h6 class="infoTitle">رقـم الهـاتف</h6>
-                        <p>{{ phone }}</p>
+                        <p>{{ phone_complete_form }}</p>
                     </div>
                     <div class="col-lg-6">
-                        <h6 class="infoTitle">الدولــة</h6>
-                        <p>{{ counrty }}</p>
+                        <h6 class="infoTitle">المستخـدم</h6>
+                        <p>{{ user_type }}</p>
                     </div>
                 </div>
                 </div>
@@ -41,7 +41,8 @@
 </template>
 
 <script>
-import {axiosInstance} from '@/Axios';
+import { axiosInstance } from '@/Axios';
+import jwtDecode from 'jwt-decode';
 
 export default {
   name: 'MyComponent',
@@ -49,15 +50,24 @@ export default {
     return {
       full_name: '',
       email: '',
-      phone: '',
-      country: {},
-      image: ''
+      phone_complete_form: '',
+      image: '',
+      user_type: '',
     };
   },
   methods: {
     async logout() {
       try {
-        await axiosInstance.post('/api/client_web/logout');
+        const token= localStorage.getItem('token');
+        const decodedTokenIss = jwtDecode(token).iss;
+        
+        let logoutUrl = '';
+        if (decodedTokenIss.includes('/api/client_web/login')) {
+          logoutUrl = '/api/client_web/logout';
+        } else if (decodedTokenIss.includes('/api/lawyer_web/login')) {
+          logoutUrl = '/lawyer/logout';
+        }
+        await axiosInstance.post(logoutUrl);
         localStorage.removeItem('token');
         this.$router.push('/login');
       } catch (error) {
@@ -66,22 +76,30 @@ export default {
     },
     async fetchData() {
       try {
-        const response = await axiosInstance.get('/api/client_web/profile');
+        const token= localStorage.getItem('token');
+        const decodedTokenIss = jwtDecode(token).iss;
+        let profileUrl = '';
+        if (decodedTokenIss.includes('/api/client_web/login')) {
+          profileUrl = '/api/client_web/profile';
+        } else if (decodedTokenIss.includes('/api/lawyer_web/login')) {
+          profileUrl = '/lawyer/profile';
+        }
+        const response = await axiosInstance.get(profileUrl);
         const data = response.data.data;
         this.full_name = data.full_name;
         this.email = data.email;
-        this.phone = data.phone;
-        this.country = data.country.name;
+        this.phone_complete_form = data.phone_complete_form;
         this.image = data.image;
+        this.user_type = data.user_type;
         console.log(data);
       } catch (error) {
         console.error(error);
       }
-    }
+    },
   },
   mounted() {
     this.fetchData();
-  }
+  },
 };
 </script>
 

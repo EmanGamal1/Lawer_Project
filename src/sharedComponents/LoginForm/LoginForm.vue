@@ -16,7 +16,7 @@
         <span class="errors">{{ passwordErrorMessage }}</span>
       </div><br/>
       <input type="submit" class="btn allButtons form-control" value="دخــول" />
-      <router-link to="/forget-password" class="routeSpan">نسيــت كلمـة المــرور؟</router-link>
+      <router-link :to="forgetPasswordLink" class="routeSpan">نسيــت كلمـة المــرور؟</router-link>
     </form>
   </template>
   
@@ -30,9 +30,14 @@
   import { useField, useForm } from 'vee-validate';
   import { countryCodeValidation, phoneValidation, passwordValidation } from '@/validationRules';
   import { useRouter } from 'vue-router';
+  import { axiosInstance } from '@/Axios.js';
   
   export default {
     props: {
+      forgetPasswordLink: {
+        type: String,
+        default: '/forget-password',
+      },
       phoneErrorMessage: {
         type: String,
         default: '',
@@ -47,7 +52,7 @@
       },
       axiosUrl: {
         type: String,
-        default: '/api/client_web/login', // Default URL
+        default: '/api/client_web/login',
       },
     },
     setup(props) {

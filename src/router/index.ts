@@ -32,12 +32,22 @@ const router = createRouter({
     {
       path: '/forget-password',
       name: 'forget-password',
-      component: () => import('../views/ForgetPassword/ForgetPassword.vue')
+      component: () => import('../views/ForgetPassword/ForgetPasswordClient.vue')
+    },
+    {
+      path: '/lawyer/forget-password',
+      name: 'lawyer-forget-password',
+      component: () => import('../views/ForgetPassword/ForgetPasswordLawyer.vue')
     },
     {
       path: '/reset-password',
       name: 'reset-password',
-      component: () => import('../views/ResetPassword/ResetPassword.vue')
+      component: () => import('../views/ResetPassword/ResetPasswordClient.vue')
+    },
+    {
+      path: '/lawyer-reset-password',
+      name: 'lawyer-reset-password',
+      component: () => import('../views/ResetPassword/ResetPasswordLawyer.vue')
     },
     {
       path: '/user-profile',
@@ -47,7 +57,12 @@ const router = createRouter({
     {
       path: '/check-code',
       name: 'check-code',
-      component: () => import('../views/CheckCodeForgetPass/CheckCodeForgetPass.vue')
+      component: () => import('../views/CheckCodeForgetPass/CheckCodeClient.vue')
+    },
+    {
+      path: '/lawyer/check-code',
+      name: 'lawyer-check-code',
+      component: () => import('../views/CheckCodeForgetPass/CheckCodeLawyer.vue')
     },
   ]
 })
