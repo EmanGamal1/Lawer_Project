@@ -10,8 +10,17 @@
 import NavBarSite from '@/components/NavBarSite/NavBarSite.vue'
 import UserProfileDetails from '@/components/UserProfileDetails/UserProfileDetails.vue'
 import FooterComponent from '@/components/FooterComponent/FooterComponent.vue'
+import { useRouter } from 'vue-router'
 
 export default {
+    setup() {
+    const router = useRouter()
+    const token = localStorage.getItem('token')
+
+    if (!token) {
+      router.push('/login')
+    }
+  },
     components: {
         NavBarSite,
         FooterComponent,

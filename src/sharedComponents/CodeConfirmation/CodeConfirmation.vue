@@ -5,11 +5,9 @@
     >
       <div class="verfiyContent">
         <div class="form-group verification-code">
-          <input type="text" class="form-control" id="phone-code" v-model="phone">
-          <input type="text" class="form-control" id="phone-code" v-model="phone_code">
-          <div class="verification-code-inputs">
-            <input type="text" class="form-control" id="verification-code" v-model="code">
-          </div>
+          <input type="text" class="form-control" id="phone-code" placeholder="رقــم الهاتــف" v-model="phone">
+          <input type="text" class="form-control" id="phone-code" placeholder="كود البلــد" v-model="phone_code">
+            <input type="text" class="form-control" id="verification-code" placeholder="كود التفعيــل" v-model="code">
         </div>
         <button class="btn allButtons sendBtn" @click="sendVerificationCode">إرســال</button>
       </div>
@@ -57,18 +55,6 @@
   </script>
   
   <style scoped>
-  .verification-code-inputs {
-    margin: auto;
-    display: flex;
-    width: 50%;
-    height: 50px;
-    margin-top: 10%;
-    margin-bottom: 3%;
-  }
-  .verification-code-inputs input {
-    margin-right: 10px;
-    text-align: center;
-  }
   .verfiyContent {
     text-align: center;
     height: 45vh;
