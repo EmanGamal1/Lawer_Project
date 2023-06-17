@@ -3,8 +3,11 @@
       <form class="formForget" @submit="sendCode">
         <label for="phone">رقـم الهــاتف</label>
         <input type="text" class="form-control" v-model="phone" name="phone" id="phone" placeholder="رقـم الهـاتف" />
+        <span class="errors">{{ phoneErrorMessage }}<br /></span>
         <label for="phone_code">كود رقـم الهــاتف</label>
         <input type="text" class="form-control" v-model="phoneCode" name="phone_code" id="phone_code" placeholder="كود رقـم الهـاتف" />
+        <span class="errors">{{ phoneCodeErrorMessage }}<br /></span>
+        <span v-if="showErrorSpan" class="invalidData errors mb-3">البيانات غير صحيحة</span>
         <input type="submit" class="btn allButtons form-control" value="إرســال" />
       </form>
   
@@ -32,53 +35,77 @@
   import { axiosInstance } from '@/Axios';
   import LoginLayout from '@/views/LoginLayout/LoginLayout.vue';
   import Modal from '@/sharedComponents/Modal/Modal.vue';
+  import { useField, useForm } from 'vee-validate';
+  import { countryCodeValidation, phoneValidation } from '@/validationRules';
+  import { ref } from 'vue';
   
   export default {
     name: 'ForgetPassword',
     components: {
       LoginLayout,
-      Modal
-    },
-    data() {
-      return {
-        phone: '',
-        phoneCode: '',
-        showSuccessModal: false,
-      };
+      Modal,
     },
     props: {
-  axiosUrl: {
-    type: String,
-    required: true,
-  },
-  nextLink: {
-    type: String,
-    default: '/check-code',
-  },
-},
-    methods: {
-        sendCode(event) {
-  event.preventDefault();
-
-  const data = {
-    phone: this.phone,
-    phone_code: this.phoneCode,
-  };
-
-  axiosInstance
-    .post(this.axiosUrl, data)
-    .then(response => {
-      this.showSuccessModal = true;
-    })
-    .catch(error => {
-      console.error(error);
-    });
-},
-
-      closeModal() {
-        this.showSuccessModal = false;
+      axiosUrl: {
+        type: String,
+        required: true,
       },
+      nextLink: {
+        type: String,
+        default: '/check-code',
+      },
+    },
+    setup(props) {
+     
+      const showSuccessModal = ref(false);
+      const showErrorSpan = ref(false);
+  
+      const { handleSubmit } = useForm();
+      const {
+      errorMessage: phoneErrorMessage,
+      value: phone,
+      handleBlur: phoneBlur,
+    } = useField('phone', phoneValidation);
+
+    const {
+      errorMessage: phoneCodeErrorMessage,
+      value: phoneCode,
+      handleBlur: phoneCodeBlur,
+    } = useField('phone_code', countryCodeValidation);
+
+      const sendCode = handleSubmit(async () => {
+        const data = {
+          phone: phone.value,
+          phone_code: phoneCode.value,
+        };
+  
+        try {
+          const response = await axiosInstance.post(props.axiosUrl, data);
+  
+          showSuccessModal.value = true;
+          showErrorSpan.value = response.data.status !== 'success';
+        } catch (error) {
+          console.error(error);
+          showErrorSpan.value = true;
+        }
+      });
+  
+      const closeModal = () => {
+        showSuccessModal.value = false;
+      };
+  
+      return {
+        phone,
+        phoneCode,
+        phoneBlur,
+        phoneCodeBlur,
+        showSuccessModal,
+        showErrorSpan,
+        phoneErrorMessage,
+        phoneCodeErrorMessage,
+        sendCode,
+        closeModal,
+      };
     },
   };
   </script>
-  
