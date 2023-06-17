@@ -43,7 +43,12 @@ const router = createRouter({
       path: '/user-profile',
       name: 'user-profile',
       component: () => import('../views/UserProfile/UserProfile.vue')
-    }
+    },
+    {
+      path: '/check-code',
+      name: 'check-code',
+      component: () => import('../views/CheckCodeForgetPass/CheckCodeForgetPass.vue')
+    },
   ]
 })
 

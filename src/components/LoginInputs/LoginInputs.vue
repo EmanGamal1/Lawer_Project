@@ -18,7 +18,7 @@ input {
 </style>
 
 <script>
-import axios from 'axios';
+import {axiosInstance} from '@/Axios';
 
 export default {
     data() {
@@ -31,7 +31,7 @@ export default {
     methods: {
         async login() {
             try {
-                const response = await axios.post('http://lawyer.phpv8.aait-d.com/api/client_web/login', {
+                const response = await axiosInstance.post('/api/client_web/login', {
                     phone: this.phone,
                     phone_code: this.phoneCode,
                     password: this.password

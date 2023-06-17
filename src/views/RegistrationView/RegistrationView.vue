@@ -34,7 +34,7 @@ import LoginLayout from '@/views/LoginLayout/LoginLayout.vue'
 import LoginUser from '@/components/LoginUser/LoginUser.vue'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faEye } from '@fortawesome/free-solid-svg-icons'
-import axios from 'axios';
+import {axiosInstance} from '@/Axios.js';
 import { useRouter } from 'vue-router';
 import NavBarAuth from '@/components/NavBarAuth/NavBarAuth.vue'
 
@@ -65,14 +65,13 @@ export default {
         password: this.password,
         password_confirmation: this.password_confirmation
       };
-      axios.post('http://lawyer.phpv8.aait-d.com/api/client_web/register', payload)
+      axiosInstance.post('/api/client_web/register', payload)
         .then(response => {
           this.responseData = response.data;
           this.$router.push('/verfication');
         })
         .catch(error => {
           console.error(error);
-          // Handle the error as needed
         });
     }
   },
