@@ -30,7 +30,7 @@ label {
 
 <script>
 import { useField, useForm } from 'vee-validate';
-import { countryCodeValidation, phoneValidation, passwordValidation } from '@/validationRules';
+import { phoneValidation, requiredValidation } from '@/validationRules';
 import { useRouter } from 'vue-router';
 import { axiosInstance } from '@/Axios.js';
 import { ref } from 'vue';
@@ -57,13 +57,13 @@ export default {
       errorMessage: phoneCodeErrorMessage,
       value: phone_code,
       handleBlur: phoneCodeBlur,
-    } = useField('phone_code', countryCodeValidation);
+    } = useField('phone_code', requiredValidation);
 
     const {
       errorMessage: passwordErrorMessage,
       value: password,
       handleBlur: passwordBlur,
-    } = useField('password', passwordValidation);
+    } = useField('password', requiredValidation);
 
     const InvalidLoginSpan = ref(false);
 

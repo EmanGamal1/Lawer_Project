@@ -36,7 +36,7 @@
   import LoginLayout from '@/views/LoginLayout/LoginLayout.vue';
   import Modal from '@/sharedComponents/Modal/Modal.vue';
   import { useField, useForm } from 'vee-validate';
-  import { countryCodeValidation, phoneValidation } from '@/validationRules';
+  import { requiredValidation, phoneValidation } from '@/validationRules';
   import { ref } from 'vue';
   
   export default {
@@ -71,7 +71,7 @@
       errorMessage: phoneCodeErrorMessage,
       value: phoneCode,
       handleBlur: phoneCodeBlur,
-    } = useField('phone_code', countryCodeValidation);
+    } = useField('phone_code', requiredValidation);
 
       const sendCode = handleSubmit(async () => {
         const data = {

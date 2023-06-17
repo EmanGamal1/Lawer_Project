@@ -1,68 +1,104 @@
 <template>
-    <login-layout
-      title="كـود التفعيــل"
-      description="أدخل كود التفعيل الذي وصلك على هاتفـك"
-    >
-      <div class="verfiyContent">
-        <div class="form-group verification-code">
-          <input type="text" class="form-control" id="phone-code" placeholder="رقــم الهاتــف" v-model="phone">
-          <input type="text" class="form-control" id="phone-code" placeholder="كود البلــد" v-model="phone_code">
-            <input type="text" class="form-control" id="verification-code" placeholder="كود التفعيــل" v-model="code">
-        </div>
-        <button class="btn allButtons sendBtn" @click="sendVerificationCode">إرســال</button>
+  <login-layout
+    title="كـود التفعيــل"
+    description="أدخل كود التفعيل الذي وصلك على هاتفـك"
+  >
+    <div class="verfiyContent">
+      <div class="form-group verification-code">
+        <input type="text" class="form-control mb-2" id="phone" placeholder="رقــم الهاتــف" v-model="phone">
+        <span class="errors">{{ phoneErrorMessage }}</span>
+        <input type="text" class="form-control mb-2" id="phone_code" placeholder="كود البلــد" v-model="phone_code">
+        <span class="errors">{{ phoneCodeErrorMessage }}</span>
+        <input type="text" class="form-control mb-2" id="verification-code" placeholder="كود التفعيــل" v-model="code">
+        <span class="errors">{{ codeErrorMessage }}</span>
+        <span v-if="showErrorSpan" class="invalidData errors mb-3">البيانات غير صحيحة</span>
       </div>
-    </login-layout>
-  </template>
-  
-  <script>
-  import LoginLayout from '@/views/LoginLayout/LoginLayout.vue';
-  import NavBarAuth from '@/components/NavBarAuth/NavBarAuth.vue';
-  import { axiosInstance } from '@/Axios';
-  
-  export default {
-    name: 'LoginView',
-    components: {
-      LoginLayout,
-      NavBarAuth
-    },
-    props: ['url', 'redirectRoute'],
-  
-    data() {
-      return {
-        code: '1111',
-        phone: '',
-        phone_code: ''
+      <button class="btn allButtons sendBtn" @click="sendVerificationCode">إرســال</button>
+    </div>
+  </login-layout>
+</template>
+
+<script>
+import LoginLayout from '@/views/LoginLayout/LoginLayout.vue';
+import NavBarAuth from '@/components/NavBarAuth/NavBarAuth.vue';
+import { axiosInstance } from '@/Axios';
+import { useField, useForm } from 'vee-validate';
+import { phoneValidation, requiredValidation } from '@/validationRules';
+import { ref } from 'vue';
+import { useRouter } from 'vue-router';
+
+export default {
+  name: 'LoginView',
+  components: {
+    LoginLayout,
+    NavBarAuth
+  },
+  props: ['url', 'redirectRoute'],
+  setup(props) {
+    const router = useRouter();
+    const { handleSubmit } = useForm();
+    const {  errorMessage: phoneErrorMessage,
+      value: phone,
+      handleBlur: phoneBlur
+    } = useField('phone', phoneValidation);
+    const { errorMessage: phoneCodeErrorMessage,
+      value: phone_code,
+      handleBlur: phone_codeBlur} = useField('phone_code', requiredValidation);
+    const {
+      errorMessage: codeErrorMessage,
+      value: code,
+      handleBlur: codeBlur
+    } = useField('code', requiredValidation);
+    const showErrorSpan = ref(false);
+
+    const sendVerificationCode = handleSubmit(async () => {
+      const requestData = {
+        code: code.value,
+        phone: phone.value,
+        phone_code: phone_code.value
       };
-    },
-    methods: {
-      sendVerificationCode() {
-        const requestData = {
-          code: this.code,
-          phone: this.phone,
-          phone_code: this.phone_code
-        };
-  
-        axiosInstance.post(this.url, requestData)
-          .then(response => {
-            this.$router.push( this.redirectRoute );
-          })
-          .catch(error => {
-            console.error(error);
-          });
+
+      try {
+        const response = await axiosInstance.post(props.url, requestData);
+
+        if (response.data.status === 'success') {
+          router.push(props.redirectRoute);
+        } else {
+          showErrorSpan.value = true;
+        }
+      } catch (error) {
+        console.error(error);
+        showErrorSpan.value = true;
       }
-    }
-  }
-  </script>
-  
-  <style scoped>
-  .verfiyContent {
-    text-align: center;
-    height: 45vh;
-  }
-  .sendBtn {
-    margin-top: 3%;
-    margin-bottom: 2%;
-    width: 50%;
-  }
-  </style>
-  
+    });
+
+    return {
+      phone,
+      phone_code,
+      code,
+      showErrorSpan,
+      phoneErrorMessage,
+      phoneCodeErrorMessage,
+      codeErrorMessage,
+      phone_code,
+        phoneBlur,
+        phone_codeBlur,
+      sendVerificationCode,
+      codeBlur,
+      router
+    };
+  },
+};
+</script>
+
+<style scoped>
+.verfiyContent {
+  text-align: center;
+  height: 45vh;
+}
+.sendBtn {
+  margin-top: 3%;
+  margin-bottom: 2%;
+  width: 50%;
+}
+</style>
