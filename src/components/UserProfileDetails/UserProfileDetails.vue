@@ -7,8 +7,6 @@
                 <div class="sideBar pb-5 col-lg-3">
                     <ul class="profileUL">
                         <li class="selected">المعلومــات الشخصيـــة</li>
-                        <li class="changePassSpan">تغييـــر كلمة المرور</li>
-                        <li class="text-danger">حذف الحســـاب</li>
                         <li class="text-danger" @click="logout">خــروج</li>
                     </ul>
                 </div>
@@ -148,9 +146,6 @@ export default {
     background-color: white;
     border-radius: 5px;
     padding: 10px;
-}
-.changePassSpan{
-    color: #697E95;
 }
 .content{
     margin-top: 7%;

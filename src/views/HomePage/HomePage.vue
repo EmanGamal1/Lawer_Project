@@ -18,18 +18,9 @@ import HomeContent from '@/components/HomeContent/HomeContent.vue'
 import Ads from '@/components/Ads/Ads.vue'
 import AboutUs from '@/components/AboutUs/AboutUs.vue'
 import FooterComponent from '@/components/FooterComponent/FooterComponent.vue'
-import { useRouter } from 'vue-router'
 
 export default {
-  setup() {
-    const router = useRouter()
-    const token = localStorage.getItem('token')
-
-    if (!token) {
-      router.push('/login')
-    }
-  },
-  components: {
+    components: {
     NavBarSite,
     HeaderComponent,
     HomeContent,
