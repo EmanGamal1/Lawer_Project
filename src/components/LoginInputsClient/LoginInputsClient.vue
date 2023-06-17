@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import LoginForm from '@/sharedComponents/Login/Login.vue';
+import LoginForm from '@/sharedComponents/LoginForm/LoginForm.vue';
 
 export default {
   components: {
