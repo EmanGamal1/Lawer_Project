@@ -50,4 +50,10 @@
     border-radius: 30px;
     width: 97%;
   }
+  @media (max-width: 576px) {
+    div{
+      margin: auto;
+      margin-bottom: 10px;
+    }
+  }
   </style>

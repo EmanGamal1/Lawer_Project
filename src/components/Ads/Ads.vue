@@ -35,4 +35,13 @@
     margin: auto;
     margin-right: 10%;
 }
+
+@media (max-width: 576px) {
+    img{
+        width: 95%;
+    }
+    .installApp{
+        margin-top: 20px;
+    }
+}
 </style>

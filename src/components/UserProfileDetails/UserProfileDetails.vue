@@ -4,7 +4,7 @@
         حســـابي</h1>
         <div class="profileDetails container">
             <div class="row wrapper">
-                <div class="sideBar col-lg-3">
+                <div class="sideBar pb-5 col-lg-3">
                     <ul class="profileUL">
                         <li class="selected">المعلومــات الشخصيـــة</li>
                         <li class="changePassSpan">تغييـــر كلمة المرور</li>

@@ -1,7 +1,7 @@
 <template>
     <div class="container-fluid ">
       <div class="row">
-          <div class="container-fluid col-6">
+          <div class="container-fluid col-lg-6">
               <NavBarAuth />
               <div class="loginContent">
             <h2>{{ title }}</h2>
@@ -11,8 +11,9 @@
               </div>
               </div>
           </div>
-          <div class="col-6 loginAvatar"></div>
-      </div></div>
+          <div class="col-lg-6 loginAvatar "></div>
+      </div>
+    </div>
     </template>
 
   <script>
@@ -48,5 +49,11 @@ export default {
 }
 .loginContent{
     padding: 16%;
+}
+
+@media (max-width: 576px) {
+  .loginAvatar{
+    display: none;
+  }
 }
 </style>

@@ -37,4 +37,9 @@
     width: 200px;
     height: auto;
 }
+@media (max-width: 992px) {
+.criminalCard{
+    margin-right: 20%;
+}
+}
 </style>

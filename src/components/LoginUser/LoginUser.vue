@@ -81,6 +81,7 @@ export default {
   width: 170px;
   height: 120px;
   padding: 10px;
+  margin-bottom: 10px;
 }
 .loggedPerson.selected {
   border-color: #C8A45D;

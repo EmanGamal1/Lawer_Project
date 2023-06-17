@@ -13,3 +13,11 @@
         </div>
     </div>
 </template>
+
+<style scoped>
+@media (max-width: 576px) {
+    .lawyerIMG{
+        margin-right: -10%;
+    }
+}
+</style>

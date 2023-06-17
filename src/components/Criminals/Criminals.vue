@@ -42,3 +42,12 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+@media (max-width: 576px) {
+    div{
+        margin: auto;
+        margin-bottom: 10px;
+    }    
+}
+</style>

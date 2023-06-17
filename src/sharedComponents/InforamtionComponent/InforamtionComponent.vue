@@ -43,6 +43,11 @@
     height: 400px;
     border-radius: 20px;
 }
+@media (max-width: 576px) {
+    img{
+        margin-right: -4%;
+    }
+}
 /* .boxAboveIMG{
     box-sizing: border-box;
 

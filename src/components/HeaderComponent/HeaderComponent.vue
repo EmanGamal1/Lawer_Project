@@ -6,11 +6,10 @@
                     قانونيــة <span class="whiteHeader">متخصصــة </span></h1>
                 <p class="whiteHeader mt-4">تأسســت الشركـة منذ 2005</p>
                 <div class="row">
-                    <div class="col mt-4">
+                    <div class="mt-4">
                         <button class="btn allButtons py-2">تواصــل معنــا</button>
-                        <a href="" class="routeSpan underlineSpan m-4">اكتشــف أكثـر</a>
+                        <a href="" class="routeSpan underlineSpan">اكتشــف أكثـر</a>
                     </div>
-                    <div class="col"></div>
                 </div>
             </div>
         </div>
@@ -25,5 +24,13 @@
 }
 .whiteHeader{
     color: white;
+}
+.underlineSpan{
+    margin-right: 30px;
+}
+@media (max-width: 576px) {
+    .underlineSpan{
+    margin-right: 10px;
+}   
 }
 </style>
