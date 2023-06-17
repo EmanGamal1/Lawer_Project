@@ -23,12 +23,12 @@ export const emailValidation = (value) => {
   return true;
 };
 
-export const confirmedValidation = (value, { target }) => {
+export const confirmedValidation = (value, { password }) => {
   if (!value) {
-    return 'هذا الحقل مطلوب';
+    return 'تأكيــد كلمة المرور مطلوبة';
   }
-  if (value !== target) {
-    return 'كلمة المرور غير متطابقة';
-  }
+  // if (value !== password) {
+  //   return 'كلمة المرور غير متطابقة';
+  // }
   return true;
 };
