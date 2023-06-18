@@ -104,7 +104,7 @@ import {
   requiredValidation,
   phoneValidation,
   confirmedValidation,
-} from "@/validationRules.vue";
+} from "@/validationRules.js";
 
 export default {
   name: "LoginView",
