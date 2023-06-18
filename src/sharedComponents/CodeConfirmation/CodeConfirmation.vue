@@ -22,7 +22,7 @@ import LoginLayout from '@/views/LoginLayout/LoginLayout.vue';
 import NavBarAuth from '@/components/NavBarAuth/NavBarAuth.vue';
 import { axiosInstance } from '@/Axios';
 import { useField, useForm } from 'vee-validate';
-import { phoneValidation, requiredValidation } from '@/validationRules';
+import { phoneValidation, requiredValidation } from '@/validationRules.vue';
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 

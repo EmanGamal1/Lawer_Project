@@ -79,7 +79,7 @@ import {
   requiredValidation,
   phoneValidation,
   confirmedValidation,
-} from "@/validationRules";
+} from "@/validationRules.vue";
 
 export default {
   name: "ForgetPassword",

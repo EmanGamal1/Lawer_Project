@@ -47,7 +47,7 @@ import { axiosInstance } from "@/Axios";
 import LoginLayout from "@/views/LoginLayout/LoginLayout.vue";
 import Modal from "@/sharedComponents/Modal/Modal.vue";
 import { useField, useForm } from "vee-validate";
-import { requiredValidation, phoneValidation } from "@/validationRules";
+import { requiredValidation, phoneValidation } from "@/validationRules.vue";
 import { ref } from "vue";
 
 export default {

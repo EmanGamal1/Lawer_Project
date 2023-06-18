@@ -24,7 +24,7 @@
 
 <script>
 import { useField, useForm } from 'vee-validate';
-import { phoneValidation, requiredValidation } from '@/validationRules';
+import { phoneValidation, requiredValidation } from '@/validationRules.vue';
 import { useRouter } from 'vue-router';
 import { axiosInstance } from '@/Axios.js';
 import { ref } from 'vue';
