@@ -16,7 +16,7 @@
         <label for="password_confirmation">تأكيـد كلمــة المرور</label>
         <input type="password" class="form-control" v-model="password_confirmation" name="password_confirmation" id="password_confirmation" placeholder="تأكيـد كلمــة المرور" />
         <span class="errors">{{ confirmPasswordErrorMessage }}<br /></span>
-        <span class="invalidResetPassword errors" v-if="showErrorSpan">بيانــات غير صحيحة</span>
+        <span class="invalidResetPassword errors" v-if="showErrorSpan">{{ showErrorSpanMessage }}</span>
         <input type="submit" class="btn allButtons form-control" value="حفـظ" />
       </form>
       <Modal
@@ -55,11 +55,7 @@
       },
     },
     setup(props) {
-      // const phone = ref('');
-     // const phone_code = ref('');
-      // const code = ref('');
-      // const password = ref('');
-      // const password_confirmation = ref('');
+      const showErrorSpanMessage = ref('');
       const showSuccessModal = ref(false);
       const showErrorSpan = ref(false);
 
@@ -105,12 +101,11 @@
   
         try {
           const response = axiosInstance.post(props.axiosUrl, formData)
-            console.log(response.data);
             showSuccessModal.value = true;
             showErrorSpan.value = response.data.status !== 'success';
           } catch (error) {
-            console.error(error);
             showErrorSpan.value = true;
+            showErrorSpanMessage.value = error.response.data.message;
           };
     });
       const closeModal = () => {
@@ -138,6 +133,7 @@
         passwordBlur,
         confirmPasswordBlur,
         phoneCodeBlur,
+      showErrorSpanMessage
       };
     },
   };

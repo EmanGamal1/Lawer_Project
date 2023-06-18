@@ -19,9 +19,15 @@ export const emailValidation = (value) => {
   if (!value) {
     return 'البريد الإلكتروني مطلوب';
   }
-  // Add email validation logic here
+
+  const emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+  if (!emailRegex.test(value)) {
+    return 'البريد الإلكتروني غير صالح';
+  }
+
   return true;
 };
+
 
 export const confirmedValidation = (value, { password }) => {
   if (!value) {

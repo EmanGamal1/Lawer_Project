@@ -15,7 +15,7 @@
       <input type="password" class="form-control" v-model="password" name="password" id="password" placeholder="كلمــة المرور" />
       <span class="errors">{{ passwordErrorMessage }}</span>
     </div>
-    <span class="invalidLogin errors my-3" v-if="InvalidLoginSpan">بيانــات غير صحيحة</span>
+    <span class="invalidLogin errors my-3" v-if="InvalidLoginSpan">{{ showErrorSpanMessage }}</span>
     <br/>
     <input type="submit" class="btn allButtons form-control" value="دخــول" />
     <router-link :to="forgetPasswordLink" class="routeSpan">نسيــت كلمة المــرور؟</router-link>
@@ -43,6 +43,7 @@ export default {
     },
   },
   setup(props) {
+    const showErrorSpanMessage = ref('');
     const router = useRouter();
 
     const { handleSubmit, resetForm } = useForm();
@@ -94,6 +95,7 @@ export default {
       } catch (error) {
         console.log('Error occurred during login:', error);
         InvalidLoginSpan.value = true;
+        showErrorSpanMessage.value = error.response.data.message;
       }
     });
 
@@ -110,6 +112,7 @@ export default {
       login,
       router,
       InvalidLoginSpan,
+      showErrorSpanMessage
     };
   },
 };

@@ -7,7 +7,7 @@
         <label for="phone_code">كود رقـم الهــاتف</label>
         <input type="text" class="form-control" v-model="phoneCode" name="phone_code" id="phone_code" placeholder="كود رقـم الهـاتف" />
         <span class="errors">{{ phoneCodeErrorMessage }}<br /></span>
-        <span v-if="showErrorSpan" class="invalidData errors mb-3">البيانات غير صحيحة</span>
+        <span v-if="showErrorSpan" class="invalidData errors mb-3">{{ showErrorSpanMessage }}</span>
         <input type="submit" class="btn allButtons form-control" value="إرســال" />
       </form>
   
@@ -56,7 +56,7 @@
       },
     },
     setup(props) {
-     
+      const showErrorSpanMessage = ref('');
       const showSuccessModal = ref(false);
       const showErrorSpan = ref(false);
   
@@ -81,12 +81,12 @@
   
         try {
           const response = await axiosInstance.post(props.axiosUrl, data);
-  
           showSuccessModal.value = true;
           showErrorSpan.value = response.data.status !== 'success';
         } catch (error) {
           console.error(error);
           showErrorSpan.value = true;
+          showErrorSpanMessage.value = error.response.data.message;
         }
       });
   
@@ -105,6 +105,7 @@
         phoneCodeErrorMessage,
         sendCode,
         closeModal,
+        showErrorSpanMessage
       };
     },
   };

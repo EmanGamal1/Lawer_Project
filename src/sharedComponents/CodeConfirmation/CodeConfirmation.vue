@@ -11,7 +11,7 @@
         <span class="errors">{{ phoneCodeErrorMessage }}</span>
         <input type="text" class="form-control mb-2" id="verification-code" placeholder="كود التفعيــل" v-model="code">
         <span class="errors">{{ codeErrorMessage }}</span>
-        <span v-if="showErrorSpan" class="invalidData errors mb-3">البيانات غير صحيحة</span>
+        <span v-if="showErrorSpan" class="invalidData errors mb-3">{{ showErrorSpanMessage }}</span>
       </div>
       <button class="btn allButtons sendBtn" @click="sendVerificationCode">إرســال</button>
     </div>
@@ -35,6 +35,7 @@ export default {
   },
   props: ['url', 'redirectRoute'],
   setup(props) {
+    const showErrorSpanMessage = ref('');
     const router = useRouter();
     const { handleSubmit } = useForm();
     const {  errorMessage: phoneErrorMessage,
@@ -65,10 +66,12 @@ export default {
           router.push(props.redirectRoute);
         } else {
           showErrorSpan.value = true;
+          showErrorSpanMessage.value = response.data.message;
         }
       } catch (error) {
         console.error(error);
         showErrorSpan.value = true;
+        showErrorSpanMessage.value = error.response.data.message;
       }
     });
 
@@ -85,7 +88,8 @@ export default {
         phone_codeBlur,
       sendVerificationCode,
       codeBlur,
-      router
+      router,
+      showErrorSpanMessage
     };
   },
 };
