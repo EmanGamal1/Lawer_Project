@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <nav class="navbar d-flex">
-        <router-link to="/"><img src="src/assets/images/icons/logoSite.png" alt="client in Lawyer app" /></router-link>
+        <router-link to="/"><img src="/src/assets/images/icons/logoSite.png" alt="client in Lawyer app" /></router-link>
         <div class="d-flex">
             <ul class="navbarLi">
                 <router-link to="/login" class="routeSpan" v-if="!isLoggedIn"><li>دخــول</li></router-link>

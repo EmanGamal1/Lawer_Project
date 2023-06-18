@@ -1,7 +1,7 @@
 <template>
     <div class="row">
         <div class="col-lg-5 lawyerIMG">
-            <img src="src/assets/images/homePageMan.png" alt="lawyer image in Lawyer site"/>
+            <img src="/src/assets/images/homePageMan.png" alt="lawyer image in Lawyer site"/>
         </div>
         <div class="col-lg-4">
             <h1 class="mt-5"><span class="coloredSpan">حل قانوني </span><br/>

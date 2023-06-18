@@ -1,7 +1,7 @@
 <template>
   <div class="row">
     <div class="col-lg-5 lawyerIMG">
-      <img :src="srcIMG" class="information about lawyers" :alt="altIMG" />
+      <img :src="srcIMG" class="infoIMG" :alt="altIMG" />
     </div>
     <div class="col-lg-4">
       <h1 class="mt-5">

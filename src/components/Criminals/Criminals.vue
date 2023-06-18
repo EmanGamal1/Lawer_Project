@@ -3,28 +3,28 @@
                 <h1 class=' mb-4 text-center'><span class='coloredSpan'>حل قانوني</span> لحل مشاكلك</h1>
                 <div class='criminalItem col-lg-2'>
                     <CriminalCard 
-                    iconSrc="src/assets/images/icons/icon1.png"
+                    iconSrc="/src/assets/images/icons/icon1.png"
                     iconAlt='lawyerIcon'
                     title='مجــرم'
                     description='الفوائد خلف الدعم القـانوني'/>
                 </div>
                 <div class='criminalItem col-lg-2'>
                     <CriminalCard 
-                    iconSrc="src/assets/images/icons/icon2.png"
+                    iconSrc="/src/assets/images/icons/icon2.png"
                     iconAlt='lawyerIcon'
                     title='مجــرم'
                     description='الفوائد خلف الدعم القـانوني'/>
                 </div>
                 <div class='criminalItem col-lg-2'>
                     <CriminalCard 
-                    iconSrc="src/assets/images/icons/icon3.png"
+                    iconSrc="/src/assets/images/icons/icon3.png"
                     iconAlt='lawyerIcon'
                     title='مجــرم'
                     description='الفوائد خلف الدعم القـانوني'/>
                 </div>
                 <div class='criminalItem col-lg-2'>
                     <CriminalCard 
-                    iconSrc="src/assets/images/icons/icon3.png"
+                    iconSrc="/src/assets/images/icons/icon3.png"
                     iconAlt='lawyerIcon'
                     title='مجــرم'
                     description='الفوائد خلف الدعم القـانوني'/>

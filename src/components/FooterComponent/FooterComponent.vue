@@ -3,7 +3,7 @@
         <div class="container">
         <div class="row ">
             <div class="col-lg-2">
-                <img src="src/assets/images/icons/logoSite.png" alt="Logo Footer for Lawyer" />
+                <img src="/src/assets/images/icons/logoSite.png" alt="Logo Footer for Lawyer" />
             </div>
             <div class="col-lg-3">
                 <ul>
@@ -38,10 +38,10 @@
                 <p>تحميــل التطبيــق</p>
                 <div class="row">
                     <div class="col-lg-6">
-                        <img src="src/assets/images/GooglePlay.png" alt="GooglePlay" class="Google Play Application Lawyer" />
+                        <img src="/src/assets/images/GooglePlay.png" alt="GooglePlay" class="Google Play Application Lawyer" />
                     </div>
                     <div class="col-lg-6">
-                        <img src="src/assets/images/AppStore.png" alt="AppStore" class="App Store Application Lawyer" />
+                        <img src="/src/assets/images/AppStore.png" alt="AppStore" class="App Store Application Lawyer" />
                     </div>
                 </div>
             </div>

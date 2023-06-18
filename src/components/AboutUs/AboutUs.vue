@@ -10,21 +10,21 @@
       <div class='row'>
         <div class='aboutCard col-lg-4'>
           <AboutUsCards 
-          cardSrc="src/assets/images/CardPhotos/CardPhoto1.png"
+          cardSrc="/src/assets/images/CardPhotos/CardPhoto1.png"
           dataOfCrime='19 نوفمبــر 2022 / مجـــرم'
           cardTitle='فوائــد أكثـر وراء الدعــم القانــوني'
           cardDescription='نحن نعلم أن الحياة صعبة. لذلك نحاول أن نجعل الأمر بسيطًا: لا خدم أو رسوم قانونية ..'/>
         </div>
         <div class='aboutCard col-lg-4'>
         <AboutUsCards 
-          cardSrc="src/assets/images/CardPhotos/CardPhoto2.png"
+          cardSrc="/src/assets/images/CardPhotos/CardPhoto2.png"
           dataOfCrime='19 نوفمبــر 2022 / مجـــرم'
           cardTitle='فوائــد أكثـر وراء الدعــم القانــوني'
           cardDescription='نحن نعلم أن الحياة صعبة. لذلك نحاول أن نجعل الأمر بسيطًا: لا خدم أو رسوم قانونية ..'/>
         </div>
         <div class='aboutCard col-lg-4'>
         <AboutUsCards 
-          cardSrc="src/assets/images/CardPhotos/CardPhoto3.png"
+          cardSrc="/src/assets/images/CardPhotos/CardPhoto3.png"
           dataOfCrime='19 نوفمبــر 2022 / مجـــرم'
           cardTitle='فوائــد أكثـر وراء الدعــم القانــوني'
           cardDescription='نحن نعلم أن الحياة صعبة. لذلك نحاول أن نجعل الأمر بسيطًا: لا خدم أو رسوم قانونية ..'/>
