@@ -22,7 +22,7 @@
 
 <style scoped>
 .wrapper {
-    background-image: url("src/assets/images/backgroundIMGforDiv.png");
+    background-image: url("/src/assets/images/backgroundIMGforDiv.png");
     border-radius: 30px;
     color: white;
     width: 97%;

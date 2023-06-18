@@ -42,7 +42,7 @@ export default {
 
 <style>
 .loginAvatar {
-  background-image: url("src/assets/images/loginAvatar.png");
+  background-image: url("/src/assets/images/loginAvatar.png");
   background-size: cover;
   background-repeat: no-repeat;
   min-height: 100vh;
