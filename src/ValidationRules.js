@@ -12,7 +12,7 @@ export const requiredValidation = (value) => {
   if (!value) {
     return 'هذا الحقل مطلوب';
   }
-  return true; 
+  return true;  
 };
 
 export const emailValidation = (value) => {
