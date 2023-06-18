@@ -3,12 +3,12 @@
         <div class="col-lg-12">
             <InforamtionComponentVue class="contentItem mb-5" 
             srcIMG="src/assets/images/lady-justice-with-books-table.jpg"
-            altIMG="infoIMG"/>
+            altIMG="Information about Lawyer"/>
         </div>
     </div>
     <InforamtionComponentVue class="contentItem my-4 pb-5" 
     srcIMG="src/assets/images/lawyerPhoto.png"
-    altIMG="infoIMG"/>
+    altIMG="Information about Lawyer"/>
 </template>
 
 <script>

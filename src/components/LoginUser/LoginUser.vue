@@ -3,11 +3,11 @@
     <p class="text-secondary">اختــر</p>
     <div class="row mb-5 loggedPersonContainer">
       <div class="col-6 loggedPerson" @click="selectPerson(0)" :class="{ 'selected': selectedPerson === 0 }">
-        <img src="src/assets/images/icons/logo.png" alt="client" />
+        <img src="src/assets/images/icons/logo.png" alt="client in Lawyer site" />
         <p>عميـل</p>
       </div>
       <div class="col-6 loggedPerson" @click="selectPerson(1)" :class="{ 'selected': selectedPerson === 1 }">
-        <img src="src/assets/images/icons/lawyerIcon.png" alt="lawyer" />
+        <img src="src/assets/images/icons/lawyerIcon.png" alt="lawyer in Lawyer site" />
         <p>محـامي</p>
       </div>
     </div>

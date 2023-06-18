@@ -8,8 +8,8 @@
                     تحميــل على
                  </p>
                  <div class='d-flex'>
-                        <a href="https://play.google.com/store/games"><img src="src/assets/images/GooglePlay.png" alt='googlePlay' class='googlePlay' /></a>
-                        <a href="https://www.apple.com/store"><img src="src/assets/images/AppStore.png" alt='appStore' class='appStore' /></a>
+                        <a href="https://play.google.com/store/games"><img src="src/assets/images/GooglePlay.png" alt='Google Play Application Lawyer' class='googlePlay' /></a>
+                        <a href="https://www.apple.com/store"><img src="src/assets/images/AppStore.png" alt='App Store Application Lawyer' class='appStore' /></a>
                  </div>
                 </div>
         <div class='col-lg-5'>

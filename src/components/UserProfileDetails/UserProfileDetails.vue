@@ -13,7 +13,7 @@
                 <div class="personalInfo col-lg-8">
                 <h3>المعلومــات الشخصيـــة</h3>
                 <div class="row">
-                    <img :src="image" alt="profilePicture" class="profilePicture" />
+                    <img :src="image" alt="profile Picture in Lawyer" class="profilePicture" />
                 </div>
                 <div class="row content">
                     <div class="col-lg-6">

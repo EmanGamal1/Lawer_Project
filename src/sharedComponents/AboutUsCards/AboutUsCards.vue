@@ -1,6 +1,6 @@
 <template>
     <div class="card">
-        <img :src="cardSrc" alt="aboutusCard" class="aboutUsCardIMG" />
+        <img :src="cardSrc" alt="about us Card for Lawyers" class="aboutUsCardIMG" />
         <div class="card-body">
             <p class="dataOfCrime">
                 {{ dataOfCrime }}
