@@ -173,8 +173,5 @@ export default {
 .resetPassLabel {
   margin-bottom: 20px;
 }
-.formForget {
-  height: 54vh;
-}
 </style>
   

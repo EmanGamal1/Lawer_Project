@@ -1,5 +1,5 @@
 <template>
-  <login-layout title="تسجيل حساب جديد" description="أهلا بك في موقعنا">
+  <login-layout title="إنشـاء حساب جديد" description="أهلا بك في موقعنا">
     <form @submit.prevent="submitForm">
       <label for="full_name">الاسم</label>
       <input

@@ -5,7 +5,7 @@
         <div class="d-flex">
             <ul class="navbarLi">
                 <router-link to="/login" class="routeSpan" v-if="!isLoggedIn"><li>دخــول</li></router-link>
-                <router-link to="/signup" class="routeSpan" v-if="!isLoggedIn"><li>تسجيـل حساب</li></router-link>
+                <router-link to="/signup" class="routeSpan" v-if="!isLoggedIn"><li>إنشـاء حساب</li></router-link>
                 <router-link to="/user-profile" class="routeSpan" v-if="isLoggedIn"><li>الصفحـة الشخصيـــة</li></router-link>
                 <div class="routeSpan" v-if="isLoggedIn" @click="logout"><li>خــروج</li></div>
             </ul>
