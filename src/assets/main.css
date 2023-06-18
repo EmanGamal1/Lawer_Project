@@ -1,35 +1,37 @@
-@import './base.css';
-
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  font-weight: normal;
-  color: black;
+*{
+  padding: 0;
+  margin: 0;
+  font-family: "Almarai";
 }
 
-a,
-.green {
+.allButtons{
+  background-color: #C8A45D !important;
+}
+
+.allButtons:hover{
+  background-color: #c8a45d96 !important;
+  border: 1px solid #C8A45D !important;
+}
+
+.routeSpan{
   text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
-  transition: 0.4s;
+  color: #C8A45D;
+  cursor: pointer;
 }
 
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
-  }
+.underlineSpan{
+ text-decoration: underline;
 }
 
-@media (min-width: 1024px) {
-  body {
-    display: flex;
-    place-items: center;
-  }
+.coloredSpan{
+ color: #C8A45D;
+}
 
-  #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
-  }
+.contentItem{
+ align-items: center;
+ justify-content: center;
+}
+
+.errors{
+ color: red;
 }

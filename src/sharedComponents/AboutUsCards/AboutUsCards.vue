@@ -1,6 +1,6 @@
 <template>
     <div class="card">
-            <img :src="cardSrc" alt="aboutusCard"/>
+        <img :src="cardSrc" alt="aboutusCard" class="aboutUsCardIMG" />
         <div class="card-body">
             <p class="dataOfCrime">
                 {{ dataOfCrime }}
@@ -32,8 +32,7 @@ export default {
     border-radius: 30px;
     width: 90%;
 }
-
-img {
+.aboutUsCardIMG {
     border-radius: 20px;
   width: 100%;
   height: 100%;

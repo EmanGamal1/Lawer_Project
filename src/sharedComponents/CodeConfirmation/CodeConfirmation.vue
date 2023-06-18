@@ -1,8 +1,7 @@
 <template>
   <login-layout
     title="كـود التفعيــل"
-    description="أدخل كود التفعيل الذي وصلك على هاتفـك"
-  >
+    description="أدخل كود التفعيل الذي وصلك على هاتفـك">
     <div class="verfiyContent">
       <div class="form-group verification-code">
         <input type="text" class="form-control mb-2" id="phone" placeholder="رقــم الهاتــف" v-model="phone">
@@ -61,7 +60,6 @@ export default {
 
       try {
         const response = await axiosInstance.post(props.url, requestData);
-
         if (response.data.status === 'success') {
           router.push(props.redirectRoute);
         } else {
@@ -76,20 +74,10 @@ export default {
     });
 
     return {
-      phone,
-      phone_code,
-      code,
-      showErrorSpan,
-      phoneErrorMessage,
-      phoneCodeErrorMessage,
-      codeErrorMessage,
-      phone_code,
-        phoneBlur,
-        phone_codeBlur,
-      sendVerificationCode,
-      codeBlur,
-      router,
-      showErrorSpanMessage
+      phone, phone_code, code, phone_code,
+      showErrorSpan, phoneErrorMessage, phoneCodeErrorMessage, codeErrorMessage, showErrorSpanMessage,
+      phoneBlur, phone_codeBlur, codeBlur,
+      sendVerificationCode, router
     };
   },
 };

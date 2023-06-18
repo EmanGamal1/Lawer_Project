@@ -1,5 +1,4 @@
-// import './assets/main.css'
-import './assets/index.css'
+import './assets/main.css'
 
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
@@ -11,9 +10,7 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faEye } from '@fortawesome/free-solid-svg-icons'
 import App from './App.vue'
 import router from './router'
-import axios from 'axios';
 import { faFacebook, faTwitter, faLinkedin } from '@fortawesome/free-brands-svg-icons'
-
 
 library.add(faEye, faFacebook, faTwitter, faLinkedin )
 

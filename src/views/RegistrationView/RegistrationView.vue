@@ -9,7 +9,7 @@
         id="full_name"
         placeholder="اسم المستخدم"
       />
-      <span class="errors">{{ full_nameErrorMessage }}<br/></span>
+      <span class="errors">{{ full_nameErrorMessage }}<br /></span>
 
       <label for="email">البريد الإلكتروني</label>
       <input
@@ -19,7 +19,7 @@
         id="email"
         placeholder="البريد الإلكتروني"
       />
-      <span class="errors">{{ emailErrorMessage }}<br/></span>
+      <span class="errors">{{ emailErrorMessage }}<br /></span>
 
       <label for="phone">رقم الهاتف</label>
       <input
@@ -29,17 +29,17 @@
         id="phone"
         placeholder="رقم الهاتف"
       />
-      <span class="errors">{{ phoneErrorMessage }}<br/></span>
+      <span class="errors">{{ phoneErrorMessage }}<br /></span>
 
-      <label for="phone_code">كود</label>
+      <label for="phone_code">كود البلــد</label>
       <input
         type="text"
         v-model="phone_code"
         class="form-control"
         id="phone_code"
-        placeholder="كود رقم الهاتف"
+        placeholder="كود البلـــد"
       />
-      <span class="errors">{{ phoneCodeErrorMessage }}<br/></span>
+      <span class="errors">{{ phoneCodeErrorMessage }}<br /></span>
 
       <div class="password-input">
         <label for="password">كلمة المرور</label>
@@ -56,7 +56,7 @@
           @click="togglePasswordVisibility"
         />
       </div>
-      <span class="errors">{{ passwordErrorMessage }}<br/></span>
+      <span class="errors">{{ passwordErrorMessage }}<br /></span>
 
       <div class="password-input">
         <label for="password_confirmation">تأكيد كلمة المرور</label>
@@ -72,10 +72,12 @@
           icon="eye"
           @click="toggleConfirmPasswordVisibility"
         />
-        <span class="errors">{{ confirmPasswordErrorMessage }}<br/></span>
+        <span class="errors">{{ confirmPasswordErrorMessage }}<br /></span>
       </div>
 
-      <span v-if="showErrorSpan" class="invalidData errors">{{ errorResponse }}<br/></span>
+      <span v-if="showErrorSpan" class="invalidData errors"
+        >{{ errorResponse }}<br
+      /></span>
 
       <input
         type="submit"
@@ -94,16 +96,15 @@
 <script>
 import LoginLayout from "@/views/LoginLayout/LoginLayout.vue";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-import { faEye } from "@fortawesome/free-solid-svg-icons";
 import { axiosInstance } from "@/Axios.js";
 import { useRouter } from "vue-router";
 import { ref } from "vue";
-import { useField, useForm } from 'vee-validate';
+import { useField, useForm } from "vee-validate";
 import {
   requiredValidation,
   phoneValidation,
-  confirmedValidation
-} from '@/validationRules';
+  confirmedValidation,
+} from "@/validationRules";
 
 export default {
   name: "LoginView",
@@ -115,48 +116,43 @@ export default {
     const showErrorSpan = ref(false);
     const router = useRouter();
 
-    const {
-      handleSubmit,
-      resetForm,
-      errors,
-      isSubmitting
-    } = useForm();
+    const { handleSubmit, errors, isSubmitting } = useForm();
 
     const {
       value: full_name,
       errorMessage: full_nameErrorMessage,
       handleBlur: full_nameBlur,
-    } = useField('full_name', requiredValidation);
+    } = useField("full_name", requiredValidation);
 
     const {
       value: email,
       errorMessage: emailErrorMessage,
       handleBlur: emailBlur,
-    } = useField('email', requiredValidation);
+    } = useField("email", requiredValidation);
 
     const {
       value: phone,
       errorMessage: phoneErrorMessage,
       handleBlur: phoneBlur,
-    } = useField('phone', phoneValidation);
+    } = useField("phone", phoneValidation);
 
     const {
       value: phone_code,
       errorMessage: phoneCodeErrorMessage,
       handleBlur: phoneCodeBlur,
-    } = useField('phone_code', requiredValidation);
+    } = useField("phone_code", requiredValidation);
 
     const {
       value: password,
       errorMessage: passwordErrorMessage,
       handleBlur: passwordBlur,
-    } = useField('password', requiredValidation);
+    } = useField("password", requiredValidation);
 
     const {
       value: password_confirmation,
       errorMessage: confirmPasswordErrorMessage,
       handleBlur: confirmPasswordBlur,
-    } = useField('password_confirmation', confirmedValidation);
+    } = useField("password_confirmation", confirmedValidation);
 
     const passwordFieldType = ref("password");
     const passwordConfirmFieldType = ref("password");
@@ -184,11 +180,12 @@ export default {
           password_confirmation: password_confirmation.value,
         };
 
-        const response = await axiosInstance.post("/api/client_web/register", payload);
-        // Handle the response as needed
+        const response = await axiosInstance.post(
+          "/api/client_web/register",
+          payload
+        );
         router.push("/verfication");
         console.log("Error: " + response.data.message);
-
       } catch (error) {
         console.error(error);
         showErrorSpan.value = true;
@@ -197,21 +194,11 @@ export default {
     });
 
     return {
-      full_name,
-      full_nameErrorMessage,
-      full_nameBlur,
-      email,
-      emailErrorMessage,
-      emailBlur,
-      phone,
-      phoneErrorMessage,
-      phoneBlur,
-      phone_code,
-      phoneCodeErrorMessage,
-      phoneCodeBlur,
-      password,
-      passwordErrorMessage,
-      passwordBlur,
+      full_name, full_nameErrorMessage, full_nameBlur,
+      email, emailErrorMessage, emailBlur,
+      phone, phoneErrorMessage, phoneBlur,
+      phone_code, phoneCodeErrorMessage, phoneCodeBlur,
+      password, passwordErrorMessage, passwordBlur,
       password_confirmation,
       confirmPasswordErrorMessage,
       confirmPasswordBlur,
@@ -220,10 +207,8 @@ export default {
       togglePasswordVisibility,
       toggleConfirmPasswordVisibility,
       submitForm,
-      showErrorSpan,
-      isSubmitting,
-      errors,
-      errorResponse,
+      showErrorSpan, isSubmitting,
+      errors, errorResponse,
     };
   },
 };
@@ -250,9 +235,6 @@ export default {
 }
 .loggedPersonContainer {
   justify-content: space-around;
-}
-input {
-  margin-bottom: 20px;
 }
 .password-input {
   position: relative;

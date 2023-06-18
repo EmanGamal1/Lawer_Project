@@ -39,7 +39,6 @@
    overflow: auto;
    background-color: rgba(0, 0, 0, 0.4);
  }
- 
  .modal-content {
    background-color: #fefefe;
    margin: 15% auto;
@@ -53,7 +52,6 @@
    text-align: center;
    margin-top: 20px;
  }
- 
  .close {
    color: #aaa;
    float: right;
@@ -61,9 +59,7 @@
    font-weight: bold;
    cursor: pointer;
  }
- 
- .close:hover,
- .close:focus {
+ .close:hover, .close:focus {
    color: black;
    text-decoration: none;
    cursor: pointer;

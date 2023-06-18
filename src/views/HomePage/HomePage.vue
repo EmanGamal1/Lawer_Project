@@ -1,5 +1,5 @@
 <template>
-  <main>
+  <main class="mainPage">
     <div class="backgroundIMG">
       <NavBarSite />
       <HeaderComponent />
@@ -12,32 +12,32 @@
 </template>
 
 <script>
-import NavBarSite from '@/components/NavBarSite/NavBarSite.vue'
-import HeaderComponent from '@/components/HeaderComponent/HeaderComponent.vue'
-import HomeContent from '@/components/HomeContent/HomeContent.vue'
-import Ads from '@/components/Ads/Ads.vue'
-import AboutUs from '@/components/AboutUs/AboutUs.vue'
-import FooterComponent from '@/components/FooterComponent/FooterComponent.vue'
+import NavBarSite from "@/components/NavBarSite/NavBarSite.vue";
+import HeaderComponent from "@/components/HeaderComponent/HeaderComponent.vue";
+import HomeContent from "@/components/HomeContent/HomeContent.vue";
+import Ads from "@/components/Ads/Ads.vue";
+import AboutUs from "@/components/AboutUs/AboutUs.vue";
+import FooterComponent from "@/components/FooterComponent/FooterComponent.vue";
 
 export default {
-    components: {
+  components: {
     NavBarSite,
     HeaderComponent,
     HomeContent,
     Ads,
     AboutUs,
-    FooterComponent
-  }
-}
+    FooterComponent,
+  },
+};
 </script>
 
 <style>
-.backgroundIMG{
+.backgroundIMG {
   background-image: url("@/assets/images/backgroundimage.png");
   background-repeat: no-repeat;
   background-size: cover;
 }
-main{
-  background-color: #181E3C;
+.mainPage {
+  background-color: #181e3c;
 }
 </style>

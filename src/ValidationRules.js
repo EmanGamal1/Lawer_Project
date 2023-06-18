@@ -33,8 +33,5 @@ export const confirmedValidation = (value, { password }) => {
   if (!value) {
     return 'تأكيــد كلمة المرور مطلوبة';
   }
-  // if (value !== password) {
-  //   return 'كلمة المرور غير متطابقة';
-  // }
   return true;
 };

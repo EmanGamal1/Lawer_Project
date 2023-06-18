@@ -6,8 +6,8 @@
       <span class="errors">{{ phoneErrorMessage }}</span>
     </div>
     <div class="form-group">
-      <label for="phone_code">كود الدولـــة</label>
-      <input type="text" class="form-control" v-model="phone_code" name="phone_code" id="phone_code" placeholder="كود رقـم الهــاتف" />
+      <label for="phone_code">كود البلــد</label>
+      <input type="text" class="form-control" v-model="phone_code" name="phone_code" id="phone_code" placeholder="كود البلـــد" />
       <span class="errors">{{ phoneCodeErrorMessage }}</span>
     </div>
     <div class="form-group">
@@ -21,12 +21,6 @@
     <router-link :to="forgetPasswordLink" class="routeSpan">نسيــت كلمة المــرور؟</router-link>
   </form>
 </template>
-
-<style scoped>
-label {
-  margin-top: 20px;
-}
-</style>
 
 <script>
 import { useField, useForm } from 'vee-validate';
@@ -117,3 +111,9 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.form-group {
+  margin-bottom: 20px;
+}
+</style>

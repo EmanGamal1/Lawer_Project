@@ -6,7 +6,7 @@
 import ForgetPasswordForm from '@/sharedComponents/ForgetPasswordForm/ForgetPasswordForm.vue'
 export default {
     components: {
-            ForgetPasswordForm
+        ForgetPasswordForm
     }
 }
 </script>
